@@ -1,0 +1,3 @@
+# #023 - Separando dígitos de um número
+# Faça um programa que leia um número de 0 a 9999 e mostre na tela coada separado
+# ex: digite um número..., unidade... dezena... centena... milhar...

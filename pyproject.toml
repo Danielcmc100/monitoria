@@ -1,0 +1,85 @@
+[project]
+name = "monitoria"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "ruff>=0.16.10",
+]
+
+[tool.ruff]
+target-version = "py313"
+line-length = 79
+indent-width = 4
+preview = true
+lint.select = ["ALL"]
+lint.fixable = ["ALL"]
+
+lint.ignore = [
+    "typing-only-first-party-import",
+    "typing-only-third-party-import",
+    "undocumented-public-init",
+    "incorrect-blank-line-before-class",
+    "multi-line-summary-second-line",
+    "implicit-namespace-package",
+    "FBT",
+    "function-call-in-default-argument",
+    "missing-trailing-comma",
+    "undocumented-public-module",
+    "undocumented-public-class",
+    "missing-copyright-notice",
+    "undocumented-public-package",
+    "line-contains-todo",
+    "relative-imports",
+    "suspicious-xml-etree-import",
+]
+
+# Allow unused variables when underscore-prefixed.
+lint.dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
+
+exclude = [
+    ".git",
+    ".hg",
+    ".pants.d",
+    ".pyenv",
+    ".pytest_cache",
+    ".pytype",
+    ".ruff_cache",
+    ".venv",
+    ".vscode",
+    "build",
+    "dist",
+    "alembic",
+    "gunicorn",
+    "scripts",
+    "examples",
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**/*.py" = [
+    "assert",                           # Pytest uses plain assertions for introspection.
+    "module-import-not-at-top-of-file",
+]
+"packages/*/tests/**/*.py" = [
+    "any-type",
+    "assert",
+    "line-too-long",
+    "unnecessary-dunder-call",
+]
+"packages/**/tests/**" = [
+    "any-type",
+    "assert",
+    "line-too-long",
+    "unnecessary-dunder-call",
+]
+[tool.ruff.lint.isort]
+known-third-party = ["component_modeling"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
+line-ending = "auto"
+docstring-code-format = true
+docstring-code-line-length = "dynamic"
